@@ -25,14 +25,13 @@ public class JumpAgent : Agent
     }
     public override void OnEpisodeBegin()
     {
-
+        //reset obstacle naar begin positie
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {    // Agent positie    
         sensor.AddObservation(this.transform.localPosition.y);
-
-        sensor.AddObservation(obstacleSpeed);
+        sensor.AddObservation(obstacle.transform.localPosition.z);
     }
 
     public float jumpForce = 30f;
@@ -47,7 +46,20 @@ public class JumpAgent : Agent
             onGround = false;
         }
 
+
+        float distanceToTarget = Vector3.Distance(this.transform.localPosition, obstacle.transform.localPosition);
+        if (distanceToTarget < 1.42f ) {
+
+            SetReward(-1);
+            EndEpisode();
+
+
+        }
+
        
+
+
+
 
 
     }
