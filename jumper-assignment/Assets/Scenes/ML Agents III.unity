@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 1749318329}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -509,10 +509,8 @@ GameObject:
   - component: {fileID: 2024565477}
   - component: {fileID: 2024565476}
   - component: {fileID: 2024565482}
-  - component: {fileID: 2024565484}
   - component: {fileID: 2024565481}
   - component: {fileID: 2024565480}
-  - component: {fileID: 2024565483}
   m_Layer: 0
   m_Name: Agent
   m_TagString: Agent
@@ -658,6 +656,7 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 --- !u!54 &2024565483
 Rigidbody:
@@ -716,3 +715,5 @@ MonoBehaviour:
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 729ba1d (added jumping in de jumpagent)
