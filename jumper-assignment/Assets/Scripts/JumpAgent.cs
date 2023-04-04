@@ -4,8 +4,6 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 using Google.Protobuf.WellKnownTypes;
-using System;
-
 
 [RequireComponent(typeof(Rigidbody))]
 public class JumpAgent : Agent
@@ -16,6 +14,7 @@ public class JumpAgent : Agent
 
     Rigidbody rb;
     bool onGround = true;
+    private float randomSpeed;
 
 
 
@@ -23,22 +22,35 @@ public class JumpAgent : Agent
     {
         rb = GetComponent<Rigidbody>();
     }
+
+    void Update()
+    {
+        // Beweeg het blokje vooruit langs de X-as
+        obstacle.transform.Translate(Vector3.right * randomSpeed * Time.deltaTime);
+    }
+
     public override void OnEpisodeBegin()
     {
         //reset obstacle naar begin positie
+        randomSpeed = Random.Range(3f, 7f);
+        obstacle.transform.localPosition = new Vector3(0, 0.5f, 5f); // reset obstacle 
+        this.gameObject.transform.localPosition = new Vector3(0f, 0.5f, -4f); // reset agent
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {    // Agent positie    
         sensor.AddObservation(this.transform.localPosition.y);
-        sensor.AddObservation(obstacle.transform.localPosition.z);
+/*        sensor.AddObservation(obstacle.transform.localPosition.x);*/
+        sensor.AddObservation(randomSpeed);
     }
 
     public float jumpForce = 30f;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {    // Acties, size = 2;
 
-        bool jump = actionBuffers.DiscreteActions[0] >= 1;
+
+        bool jump = actionBuffers.DiscreteActions[0] == 1;
+        print(actionBuffers.DiscreteActions[0]);
 
         if (jump & onGround) // if jump button is pressed and is on the ground
         {
@@ -50,9 +62,17 @@ public class JumpAgent : Agent
         float distanceToTarget = Vector3.Distance(this.transform.localPosition, obstacle.transform.localPosition);
         if (distanceToTarget < 1.42f ) {
 
+
             SetReward(-1);
             EndEpisode();
 
+
+        }
+
+        if (obstacle.transform.position.y < 0)
+        {
+            EndEpisode();
+            
 
         }
 
@@ -72,7 +92,7 @@ public class JumpAgent : Agent
 
 
         DiscreteActionsOut[0] = Mathf.RoundToInt(Input.GetAxis("Vertical"));
-        print(DiscreteActionsOut[0]);
+        
     }
 
 
