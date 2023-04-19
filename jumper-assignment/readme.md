@@ -10,7 +10,7 @@ een negatieve beloning. We hebben hem ook beperkt dat die niet kan springen als 
 
 3. We voegen uiteindelijk rays toe (ogen) zodat de agent zelf kan inschatten wanneer die moet springen. 
 
-![image](C:\Users\niels\Documents\GitHub\jumper-assignment-Gehug\Tensorcad.png)
+![image](\jumper-assignment-Gehug\Tensorcad.png)
 
 '
 using System.Collections.Generic;
