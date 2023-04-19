@@ -1,4 +1,16 @@
-using System.Collections.Generic;
+# Jumper opdracht
+
+##### Niels Aarts - Gil Struyf
+##### 1VTITIOT
+
+1. Eerst starten we door een blok vooruit te laten bewegen, dit is ons obstakel.
+
+2. Nu maken we onze agent aan die de locatie van het obstakel binnen krijgt en hierover gaat springen. Bij het raken van de obstakel geven wij hier
+een negatieve beloning. We hebben hem ook beperkt dat die niet kan springen als die niet op de grond staat.
+
+3. We voegen uiteindelijk rays toe (ogen) zodat de agent zelf kan inschatten wanneer die moet springen.
+
+'using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
@@ -91,3 +103,4 @@ public class JumpAgent : Agent
         }
     }
 }
+'
