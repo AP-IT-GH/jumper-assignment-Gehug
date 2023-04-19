@@ -9,7 +9,7 @@ using Google.Protobuf.WellKnownTypes;
 public class JumpAgent : Agent
 {
     public GameObject obstacle;
-    private float obstacleSpeed = 0;
+    public GameObject bonus;
 
     Rigidbody rb;
     bool onGround = true;
@@ -26,6 +26,7 @@ public class JumpAgent : Agent
     {
         // Beweeg het blokje vooruit langs de X-as
         obstacle.transform.Translate(Vector3.right * randomSpeed * Time.deltaTime);
+        bonus.transform.Translate(Vector3.right * randomSpeed * 1.1f * Time.deltaTime);
     }
 
 
@@ -33,7 +34,9 @@ public class JumpAgent : Agent
     {
         //reset obstacle naar begin positie
         randomSpeed = Random.Range(3f, 7f);
+        bonus.SetActive(true);
         obstacle.transform.localPosition = new Vector3(0, 0.5f, 5f); // reset obstacle 
+        bonus.transform.localPosition = new Vector3(0, 5f, 5f); // reset bonus 
         this.gameObject.transform.localPosition = new Vector3(0f, 0.5f, -4f); // reset agent
     }
 
@@ -41,7 +44,7 @@ public class JumpAgent : Agent
     public override void CollectObservations(VectorSensor sensor)
     {    // Agent positie    
         sensor.AddObservation(this.transform.localPosition.y);
-/*        sensor.AddObservation(obstacle.transform.localPosition.x);*/
+        //sensor.AddObservation(obstacle.transform.localPosition.x);
         sensor.AddObservation(randomSpeed);
     }
 
@@ -62,9 +65,17 @@ public class JumpAgent : Agent
 
 
         float distanceToTarget = Vector3.Distance(this.transform.localPosition, obstacle.transform.localPosition);
-        if (distanceToTarget < 1.42f ) {
+        if (distanceToTarget < 1.42f ) 
+        {
             SetReward(-1);
             EndEpisode();
+        }
+
+        float distanceToBonus = Vector3.Distance(this.transform.localPosition, bonus.transform.localPosition);
+        if (distanceToBonus < 1.42f)
+        {
+            SetReward(+0.5f);
+            bonus.SetActive(false);
         }
 
         if (obstacle.transform.position.y < 0)
