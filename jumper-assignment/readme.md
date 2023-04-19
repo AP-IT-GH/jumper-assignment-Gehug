@@ -12,7 +12,7 @@ een negatieve beloning. We hebben hem ook beperkt dat die niet kan springen als 
 
 ![Image](https://github.com/AP-IT-GH/jumper-assignment-Gehug/blob/test/Tensorcad.png)
 
-''using System.Collections.Generic;
+``using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
@@ -104,4 +104,4 @@ public class JumpAgent : Agent
             onGround = true;
         }
     }
-}''
+}``
