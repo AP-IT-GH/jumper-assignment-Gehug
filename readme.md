@@ -10,9 +10,9 @@ een negatieve beloning. We hebben hem ook beperkt dat die niet kan springen als 
 
 3. We voegen uiteindelijk rays toe (ogen) zodat de agent zelf kan inschatten wanneer die moet springen. 
 
-![image](C:\Users\niels\Documents\GitHub\jumper-assignment-Gehug\jumper-assignment\Tensorcad.png)
+![image](https://github.com/AP-IT-GH/jumper-assignment-Gehug/blob/test/Tensorcad.png)
 
-'
+``
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
@@ -106,4 +106,4 @@ public class JumpAgent : Agent
         }
     }
 }
-'
+``
