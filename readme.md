@@ -8,7 +8,9 @@
 2. Nu maken we onze agent aan die de locatie van het obstakel binnen krijgt en hierover gaat springen. Bij het raken van de obstakel geven wij hier
 een negatieve beloning. We hebben hem ook beperkt dat die niet kan springen als die niet op de grond staat.
 
-3. We voegen uiteindelijk rays toe (ogen) zodat de agent zelf kan inschatten wanneer die moet springen. 
+3. We voegen uiteindelijk rays toe (ogen) zodat de agent zelf kan inschatten wanneer die moet springen.
+
+4. We voegen een bonus blok toe die boven het obstakel vliegt en wanneer deze gepakt word lervert deze een positieve beloning.
 
 ![image](https://github.com/AP-IT-GH/jumper-assignment-Gehug/blob/test/Tensorcad.png)
 
