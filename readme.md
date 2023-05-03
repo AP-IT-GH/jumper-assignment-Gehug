@@ -12,7 +12,7 @@ een negatieve beloning. We hebben hem ook beperkt dat die niet kan springen als 
 
 4. We voegen een bonus blok toe die boven het obstakel vliegt en wanneer deze gepakt word lervert deze een positieve beloning.
 
-![image](https://github.com/AP-IT-GH/jumper-assignment-Gehug/blob/test/Tensorcad.png)
+![image](https://github.com/AP-IT-GH/jumper-assignment-Gehug/blob/jumper/Tensorcad.png)
 
 ```using System.Collections.Generic;
 using UnityEngine;
